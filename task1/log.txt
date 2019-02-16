@@ -1,0 +1,12 @@
+commit fc52f6fec5b0d61fbd67ee94067cd90d9663eb0f (HEAD -> master)
+Author: noname <pawel00@mail.ru>
+Date:   Sat Feb 16 15:46:39 2019 +0300
+
+    added status.txt for task1
+
+commit 41cddc9c88237103bca558f64a6353aa0ec6c4d8
+Author: noname <pawel00@mail.ru>
+Date:   Sat Feb 16 15:43:44 2019 +0300
+
+    add .gitignore
+
