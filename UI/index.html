@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gram</title>
+	<script language="JavaScript">
+		function filterProc() {
+			var filter = document.getElementById("filter");
+			if (filter.className == "activatedFilter")
+				filter.className = "deactivatedFilter";
+			else
+				filter.className = "activatedFilter";
+		} 
+	</script>
+</head>
+<body>
+	<header>
+		<button class="circleButton" id="filterButton" onclick="filterProc()"><img src="icons/filter.svg"></button>
+		<h1 class="head"><a href="index.html">Gram</a></h1>
+		<button class="squareButton" id="logOff">log off</button>
+		<p class="headerUsername">user1</p>
+		<button class="circleButton" id="addPost"><img src="icons/addPost.svg"></button>
+	</header>
+	<div class="deactivatedFilter" id="filter">
+		<p class="filterText">users to filter:</p>	
+		<textarea class="filterInput"></textarea>
+		<p class="filterText">dates to filter:</p>
+		<textarea class="filterInput"></textarea>
+		<p class="filterText">tags to filter:</p>
+		<textarea class="filterInput"></textarea>
+		<button class="toFilterButton">filter</button>
+	</div>
+	<main>
+		<img class="post" src="photos/image1.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<button class="tool"><img src="icons/pencil.svg"></button>
+		<button class="tool"><img src="icons/trashcan.svg"></button>
+		<p class="postUsername">user1</p>
+		<p class="postDescription">description of first photo</p>
+		<p class="tags"><i>tags: #tag1 #tag2 #tag3 #tag4 #tag5 #tag6</i><span class="postDate">posted 14.01.2019</span></p>
+
+		<img class="post" src="photos/image2.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<p class="postUsername">user2</p>
+		<p class="postDescription">descriprion of second photo</p>
+		<p class="tags"><i>tags: #tag1 #tag3</i><span class="postDate">posted 14.01.2019</span></p>
+
+		<img class="post" src="photos/image3.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<button class="tool"><img src="icons/pencil.svg"></button>
+		<button class="tool"><img src="icons/trashcan.svg"></button>
+		<p class="postUsername">user1</p>
+		<p class="postDescription">descriprion of third photo</p>
+		<p class="tags"><i>tags: </i><span class="postDate">posted 14.01.2019</span></p>
+
+		<img class="post" src="photos/image4.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<p class="postUsername">user3</p>
+		<p class="postDescription">descriprion of fourth photo</p>
+		<p class="tags"><i>tags: #tag1 #tag3</i><span class="postDate">posted 14.01.2019</span></p>
+
+		<img class="post" src="photos/image5.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<p class="postUsername">user2</p>
+		<p class="postDescription">descriprion of fifth photo</p>
+		<p class="tags"><i>tags: #tag1 #tag5 #tag2</i><span class="postDate">posted 14.01.2019</span></p>
+
+		<img class="post" src="photos/image6.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<p class="postUsername">user2</p>
+		<p class="postDescription">descriprion of sixth photo</p>
+		<p class="tags"><i>tags: #tag1 #tag6 #tag4</i><span class="postDate">posted 13.01.2019</span></p>
+
+		<img class="post" src="photos/image7.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<button class="tool"><img src="icons/pencil.svg"></button>
+		<button class="tool"><img src="icons/trashcan.svg"></button>
+		<p class="postUsername">user1</p>
+		<p class="postDescription">descriprion of seventh photo</p>
+		<p class="tags"><i>tags: #tag5 #tag2</i><span class="postDate">posted 13.01.2019</span></p>
+
+		<img class="post" src="photos/image8.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<p class="postUsername">user3</p>
+		<p class="postDescription">Описание восьмого фото для проверки русского языка</p>
+		<p class="tags"><i>tags: #тэг3 #тэг1</i><span class="postDate">posted 13.01.2019</span></p>
+
+		<img class="post" src="photos/image9.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<p class="postUsername">user3</p>
+		<p class="postDescription">descriprion of ninth photo</p>
+		<p class="tags"><i>tags: #tag2 #tag4</i><span class="postDate">posted 12.01.2019</span></p>
+
+		<img class="post" src="photos/image10.png">
+		<img class="avatar" src="avatar.png">
+		<button class="tool"><img src="icons/like.svg"></button>
+		<p class="postUsername">user2</p>
+		<p class="postDescription">descriprion of tenth photo</p>
+		<p class="tags"><i>tags: #tag1 #tag5</i><span class="postDate">posted 12.01.2019</span></p>
+	</main>
+	<footer>
+		<button class="showMore">show more</button>
+		Gram.com 2019<br>
+		Pavel Amelkov<br>
+		2 year 7 group BSU<br>
+		fpm.amelkov@bsu.by<br>
+	</footer>
+</body>
+</html>

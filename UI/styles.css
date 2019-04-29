@@ -1,0 +1,297 @@
+:root {
+	--headerHeight: 55px;
+	--headerButtonHeight: 30px;
+	--headerButtonWidth: 60px;
+	--filterHeight: 400px;
+}
+
+* {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+button {
+	outline: none;
+}
+
+body {
+	position: relative;
+	min-height: 100%;
+	background-color: #111111;
+}
+
+main {
+	margin: auto;
+	max-width: 600px;
+	padding: 70px 0 220px 0;
+}
+
+header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: black;
+	height: var(--headerHeight);
+	border-bottom: 1px solid #404040;
+	color: white;
+	z-index: 2;
+}
+
+h1.head {
+	position: relative;
+	float: left;
+	top: 5px;
+	font-size: 36px;
+	left: calc(14%);
+}
+
+p.headerUsername {
+	position: relative;
+	float: right;
+	top: 13px;
+	font-size: 24px;
+	right: 25px;
+}
+
+h1.head a:first-child {
+	color: white;
+	text-decoration: none;
+}
+
+@media (max-width: 380px) {
+	h1.head {
+		display: none;
+	}
+}
+
+@media (max-width: 230px) {
+	p.headerUsername {
+		display: none;
+	}
+}
+
+button.squareButton {	
+	background-color: #B1B1B1;
+	font-size: 16px;
+	border: none;
+	color: black;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 6px;
+}
+
+button.circleButton {
+	background-color: #B1B1B1;
+	border: none;
+	color: black;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 100%;
+}
+
+#logOff {
+	height: var(--headerButtonHeight);
+	width: var(--headerButtonWidth);
+	float: right;
+	position: relative;
+	right: 10px;
+	top: calc((var(--headerHeight) - var(--headerButtonHeight)) / 2);
+}
+
+#addPost {
+	height: var(--headerButtonHeight);
+	width: var(--headerButtonHeight);
+	float: right;
+	position: relative;
+	right: 40px;
+	top: calc((var(--headerHeight) - var(--headerButtonHeight)) / 2);
+}
+
+#addPost img:first-child {
+	position: relative;
+	top: calc(var(--headerButtonHeight) / 17);
+	width: calc(var(--headerButtonHeight) / 1.5);
+}
+
+#filterButton {
+	height: var(--headerButtonHeight);
+	width: var(--headerButtonHeight);
+	float: left;
+	position: relative;
+	left: 10px;
+	top: calc((var(--headerHeight) - var(--headerButtonHeight)) / 2);
+}
+
+#filterButton img:first-child {
+	position: relative;
+	top: calc(var(--headerButtonHeight) / 10);
+	width: calc(var(--headerButtonHeight) / 1.5);
+}
+
+footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	padding: 25px 0;
+	width: 100%;
+	height: 100px;
+	background-color: #000000;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 20px;
+	border-top: 1px solid #404040;
+	z-index: 1;
+}
+
+button.showMore {
+	position: absolute;
+	left: 0;
+	top: -36px;
+	width: 100%;
+	height: 35px;
+	background-color: #555555;
+	font-size: 18px;
+	border: none;
+	color: black;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+}
+
+div.post {
+/*	margin: auto;
+	max-width: 600px;*/
+}
+
+img.post {
+	max-width: 100%;
+	padding-bottom: 5px;
+}
+
+img.avatar {
+	float: left;
+	margin-right: 10px;
+	margin-left: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+}
+
+p.postUsername {
+	padding-top: 12px;
+	font-size: 22px; 
+	color: white
+}
+
+.tool {
+	--tool-height: 20px;
+	height: var(--tool-height);
+	float: right;
+	margin-right: 13px;
+	margin-top: 11px;
+	background-color: #111111;
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.tool img:first-child {
+	height: var(--tool-height)
+}
+
+p.postDescription {
+	clear: left;
+	color: white;
+	font-size: 18px;
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+p.tags {
+	font-size: 14px;
+	text-align: left;
+	color: white;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.postDate {
+	font-size: 15px;
+	float: right;
+	color: white;
+}
+
+#filter {
+	position: fixed;
+	float: left;
+	top: calc(var(--headerHeight) + 1px);
+	background-color: black;
+	width: 240px;
+	height: var(--filterHeight);
+	border-width: 0 1px 1px 0;
+	border-color: #404040;
+	border-style: solid;
+	transition-duration: 0.36s;
+}
+
+div.activatedFilter {
+	left: 0;
+}
+
+div.deactivatedFilter {
+	left: calc(0px - var(--filterHeight));
+}
+
+p.filterText {
+	color: white;
+	font-size: 22px;
+	margin: 5px 20px;
+}
+
+textarea.filterInput {
+	outline: none;
+	border: none;
+	background-color: #111111;
+	resize: none;
+	color: white;
+	font-size: 18px;
+	margin: 5px 20px;
+	padding: 5px;
+	width: 190px;
+	height: 50px;
+}
+
+textarea.filterInput::-webkit-scrollbar {
+	background-color: #555555;
+	cursor: default;
+}
+
+textarea.filterInput::-webkit-scrollbar-thumb {
+	background-color: #333333;
+}
+
+button.toFilterButton {
+	width: 100px;
+	height: 35px;
+	float: right;
+	margin: 10px 20px 0 0;
+	position: relative;
+	background-color: #B1B1B1;
+	font-size: 22px;
+	border: none;
+	color: black;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 6px;
+}
