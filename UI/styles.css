@@ -258,6 +258,13 @@ p.filterText {
 	margin: 5px 20px;
 }
 
+p.numOfLikes {
+/*	position: absolute;	
+	top: 10px;*/
+	color: white;
+	font-size: 10px;
+}
+
 textarea.filterInput {
 	outline: none;
 	border: none;
