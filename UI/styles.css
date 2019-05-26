@@ -2,7 +2,7 @@
 	--headerHeight: 55px;
 	--headerButtonHeight: 30px;
 	--headerButtonWidth: 60px;
-	--filterHeight: 400px;
+	--filterHeight: 430px;
 }
 
 * {
@@ -97,7 +97,7 @@ button.circleButton {
 	border-radius: 100%;
 }
 
-#logOff {
+#login {
 	height: var(--headerButtonHeight);
 	width: var(--headerButtonWidth);
 	float: right;
@@ -225,7 +225,7 @@ p.tags {
 	padding-left: 10px;
 }
 
-.postDate {
+.post {
 	font-size: 15px;
 	float: right;
 	color: white;
@@ -246,6 +246,7 @@ p.tags {
 
 div.activatedFilter {
 	left: 0;
+	z-index: 2;
 }
 
 div.deactivatedFilter {
@@ -265,7 +266,7 @@ p.numOfLikes {
 	font-size: 10px;
 }
 
-textarea.filterInput {
+.filterInput {
 	outline: none;
 	border: none;
 	background-color: #111111;
@@ -287,6 +288,24 @@ textarea.filterInput::-webkit-scrollbar-thumb {
 	background-color: #333333;
 }
 
+div.datesInput {
+	margin: 5px 19px;
+	height: 40px;
+}
+
+input.datesInput {
+	text-align: center;
+	outline: none;
+	border: none;
+	background-color: #111111;
+	resize: none;
+	font-size: 18px;
+	margin: 5px 1px;
+	padding: 5px;
+	width: 52px;
+	height: 20px;
+}
+
 button.toFilterButton {
 	width: 100px;
 	height: 35px;
@@ -301,4 +320,138 @@ button.toFilterButton {
 	display: inline-block;
 	cursor: pointer;
 	border-radius: 6px;
+}
+
+.loginHead {
+	font-size: 32px;
+	text-align: center;
+	color: white;
+}
+
+div.loginBox {
+	margin-top: 50px;
+	border-radius: 6px;
+	max-width: 238px;
+	height: 60px;
+	border: 1px solid white;
+	z-index: 2;
+}
+
+input.loginInput {
+	background-color: #111111;
+	font-size: 16px;
+	padding: 4px;
+	color: white;
+	height: 21px;
+	width: 230px;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid white;
+	border-radius: 6px 6px 0px 0px;
+}
+
+input.passwordInput {
+	background-color: #111111;
+	font-size: 16px;
+	padding: 4px;
+	color: white;
+	height: 21px;
+	width: 230px;
+	border: none;
+	outline: none;
+	border-top: 1px solid white;
+	border-radius: 0px 0px 6px 6px;
+}
+
+p.loginError {
+	text-align: center;
+	color: red;
+	font-size: 14px;
+}
+
+#loginPageLoginButton {
+	position: relative;
+	float: right;
+	right: 10px;
+	top: 10px;
+	width: 60px;
+	height: 30px;
+}
+
+p.emptyFilter {
+	text-align: center;
+	color: white;
+	font-size: 40px;
+}
+
+.popup{
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+}
+
+.popup .askWindow {
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    background-color: #111111;
+    border-radius: 5px;
+}
+
+p.askWindowText {
+	text-align: center;
+	color: white;
+	font-size: 26px;
+}
+
+#deleteYes {
+	position: relative;
+	text-align: center;
+	float: left;
+	left: 10px;
+	top: 30px;
+	width: 70px;
+	height: 30px;
+}
+
+#deleteNo {
+	position: relative;
+	text-align: center;
+	float: right;
+	right: 10px;
+	top: 30px;
+	width: 70px;
+	height: 30px;
+}
+
+.editText {
+	font-size: 16px;
+	color: white;
+}
+
+.editTextArea {
+	outline: none;
+	border: none;
+	background-color: #B1B1B1;
+	resize: none;
+	color: black;
+	font-size: 16px;
+	padding: 5px;
+	width: 590px;
+	height: 100px;
+}
+
+#addButton {
+	text-align: center;
+	float: left;
+	margin-top: 20px;
+	width: 80px;
+	height: 40px;
 }
