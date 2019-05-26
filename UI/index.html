@@ -4,39 +4,78 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Gram</title>
-	<script language="JavaScript">
-		function filterProc() {
-			var filter = document.getElementById("filter");
-			if (filter.className == "activatedFilter")
-				filter.className = "deactivatedFilter";
-			else
-				filter.className = "activatedFilter";
-		} 
-	</script>
 	<script src="javaScript/postList.js"></script>
-	<script src="javaScript/view.js"></script>
+	<script src="javaScript/UserControl.js"></script>
+	<script src="javaScript/FineInput.js"></script>
+	<script src="javaScript/FilterProcess.js"></script>
+	<script src="javaScript/View.js"></script>
 </head>
 <body>
-	<header>
-		<button class="circleButton" id="filterButton" onclick="filterProc()"><img src="icons/filter.svg"></button>
-		<h1 class="head"><a href="index.html">Gram</a></h1>
-		<button class="squareButton" id="logOff">log off</button>
-		<p class="headerUsername">user1</p>
-		<button class="circleButton" id="addPost"><img src="icons/addPost.svg"></button>
-	</header>
 	<div class="deactivatedFilter" id="filter">
 		<p class="filterText">users to filter:</p>	
-		<textarea class="filterInput"></textarea>
-		<p class="filterText">dates to filter:</p>
-		<textarea class="filterInput"></textarea>
+		<textarea id="usersFilter" class="filterInput"></textarea>
+		<p class="filterText">dates from:</p>
+		<div class="datesInput">
+			<input 
+				id="dayFilter1"
+				onfocus="filterProcess.inputOnFocus(this, 0)"
+				onblur="filterProcess.inputOnBlur(this, 0, 'DD')"
+				value="DD"
+				style="color: dimgray"
+				class="datesInput"
+				maxlength="2">
+			<input 
+				id="monthFilter1" 
+				onfocus="filterProcess.inputOnFocus(this, 1)" 
+				onblur="filterProcess.inputOnBlur(this, 1, 'MM')" 
+				value="MM"
+				style="color: dimgray"
+				class="datesInput" 
+				maxlength="2">
+			<input 
+				id="yearFilter1" 
+				onfocus="filterProcess.inputOnFocus(this, 2)" 
+				onblur="filterProcess.inputOnBlur(this, 2, 'YYYY')" 
+				value="YYYY"
+				style="color: dimgray"
+				class="datesInput" 
+				maxlength="4">
+		</div>
+		<p class="filterText">dates to:</p>
+		<div class="datesInput">
+			<input 
+				id="dayFilter2" 
+				onfocus="filterProcess.inputOnFocus(this, 3)" 
+				onblur="filterProcess.inputOnBlur(this, 3, 'DD')" 
+				value="DD"
+				style="color: dimgray"
+				class="datesInput" 
+				maxlength="2">
+			<input 
+				id="monthFilter2" 
+				onfocus="filterProcess.inputOnFocus(this, 4)" 
+				onblur="filterProcess.inputOnBlur(this, 4, 'MM')" 
+				value="MM"
+				style="color: dimgray"
+				class="datesInput" 
+				maxlength="2">
+			<input 
+				id="yearFilter2" 
+				onfocus="filterProcess.inputOnFocus(this, 5)" 
+				onblur="filterProcess.inputOnBlur(this, 5, 'YYYY')" 
+				value="YYYY"
+				style="color: dimgray"
+				class="datesInput" 
+				maxlength="4">
+		</div>
 		<p class="filterText">tags to filter:</p>
-		<textarea class="filterInput"></textarea>
-		<button class="toFilterButton">filter</button>
+		<textarea id="tagsFilter" class="filterInput"></textarea>
+		<button class="toFilterButton" onclick="filterProcess.filterProcess()">filter</button>
 	</div>
 	<main>
 	</main>
 	<footer>
-		<button class="showMore">show more</button>
+		<button class="showMore" onclick="view.getPage()">show more</button>
 		Gram.com 2019<br>
 		Pavel Amelkov<br>
 		2 year 7 group BSU<br>

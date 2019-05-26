@@ -1,17 +1,16 @@
-
 (function() {
-
 	function isString(string) {
 		return (string instanceof String) || (typeof string === 'string');
 	}
 
 	class PostList {
-		constructor(array, currentUser) {
-			if (array instanceof Array)
-			{
-				this._posts = array;
-				this.currentUser = currentUser
-			}
+		constructor() {
+			this._posts = JSON.parse(window.localStorage.getItem('photoPosts'));
+			this._posts.forEach(function(item) { item.createdAt = new Date(item.createdAt)});
+		}
+
+		_updatePosts() {
+			window.localStorage.setItem('photoPosts', JSON.stringify(this._posts));
 		}
 
 		_reversedPosts() {
@@ -31,20 +30,30 @@
 			var result = this._reversedPosts().slice(skip, this._posts.length);
 			result = result.filter(function(post) {
 				if (Array.isArray(filterConfig.authors))
-					if (!filterConfig.authors.includes(post.author))
+					if (!filterConfig.authors.includes(post.author)){
+						++skip;
 						return false;
-				if (Array.isArray(filterConfig.dates))
-					if (!filterConfig.dates.map(function(item) { return item.getTime() })
-						.includes(post.createdAt.getTime()))
+					}
+				if ((filterConfig.firstDate != undefined) && (filterConfig.secondDate != undefined))
+					if ((post.createdAt.getTime() < filterConfig.firstDate.getTime()) || 
+						(post.createdAt.getTime() > filterConfig.secondDate.getTime())){
+						++skip;
 						return false;
+					}
 				if (Array.isArray(filterConfig.hashTags)) {
-					return post.hashTags.some(function(item) {
-							   return filterConfig.hashTags.includes(item);
-							});
+					if (!post.hashTags.some(function(item) { return filterConfig.hashTags.includes(item); })) {
+						++skip;
+						return false;
+					} else {
+						return true;
+					}
 				}
 				return true;
 			});
-			return result.slice(0, top);
+			return {
+				array: result.slice(0, top),
+				newNumber: skip
+			}
 		}
 
 		get(id) {
@@ -73,6 +82,7 @@
 					});
 					this._posts.splice(i, 0, post);
 				}
+				this._updatePosts();
 				return true;
 			}
 			return false;
@@ -93,6 +103,7 @@
 					postToChange[property] = post[property];
 				}
 			});
+			this._updatePosts();
 			return true;
 		}
 
@@ -101,7 +112,19 @@
 			if (index == -1)
 				return false;
 			this._posts.splice(index, 1);
+			this._updatePosts();
 			return true;
+		}
+
+		pressLike(post, currentUser) {
+			post.likes.push(currentUser.login);
+			this._updatePosts();
+		}
+
+		deleteLike(post, currentUser) {
+			var postlikes = post.likes;
+			postlikes.splice(postlikes.findIndex(function(item) {return item == currentUser.login;}), 1);
+			this._updatePosts();
 		}
 
 		getLength() {
@@ -175,7 +198,7 @@
 	},
 	{
 		id: '8',
-		description: 'Описание восьмого фото для проверки русского языка',
+		description: 'description of eighth photo',
 		createdAt: new Date(2019, 0, 11),
 		author: 'user3',
 		photoLink: 'photos/image8.png', 
@@ -336,15 +359,10 @@
 		likes: ['user1']
 	}
 	];
-
-	function reversedArray(array) {
-		var result = Array(array.length);
-		for (var i = 0; i < array.length; ++i)
-			result[i] = array[array.length - i - 1];
-		return result;
+	if (window.localStorage.getItem('photoPosts') == null) {
+		window.localStorage.setItem('photoPosts', JSON.stringify(photoPosts));
 	}
-
-	window.postList = new PostList(photoPosts, 'user1');
+	window.postList = new PostList();
 
 
 }());

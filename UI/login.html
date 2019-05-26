@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gram</title>
+	<script src="javaScript/UserControl.js"></script>
+	<script src="javaScript/FineInput.js"></script>
+	<script src="javaScript/LoginProc.js"></script>
+</head>
+<body>
+	<header>
+		<h1 class="head"><a href="index.html">Gram</a></h1>
+	</header>
+	<main style="max-width: 240px">
+		<h2 class="loginHead">Log In</h2>
+		<div class="loginBox">
+			<input 
+			class="loginInput" 
+			value="Login"
+			style="color: dimgray"
+			onfocus="loginProc.loginOnFocus(this)" 
+			onblur="loginProc.loginOnBlur(this, 'Login')">
+			<input 
+			class="passwordInput" 
+			type="password" 
+			value="Password"
+			style="color: dimgray"
+			onfocus="loginProc.passwordOnFocus(this)" 
+			onblur="loginProc.passwordOnBlur(this, 'password')">
+		</div>
+		<button class="squareButton" id="loginPageLoginButton" onclick="loginProc.login()">log in</button>
+	</main>
+	<footer>
+		Gram.com 2019<br>
+		Pavel Amelkov<br>
+		2 year 7 group BSU<br>
+		fpm.amelkov@bsu.by<br>
+	</footer>
+</body>
+</html>
